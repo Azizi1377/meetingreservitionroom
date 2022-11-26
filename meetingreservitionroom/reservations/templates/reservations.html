@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block titel %}  رزرو اتاق جلسه  {% endblock %}
+
+{% block content %}
+    <h3 style="margin: auto; width: 220px;">رزرو اتاق جلسه</h3><hr/>
+
+    <form action="" method="post" style="margin: auto; width: 220px;"> 
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type='submit' value='رزرو'> 
+    </form>
+
+    {{ form.media }}   
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block titel %}  وضعیت اتاق ها {% endblock %}
+
+{% block content %}  
+
+  <form  method="get" novalidate>
+    {{ Filter }}
+    <button class="btn btn-primary" type="submit"> جستجو</button>
+  </form>
+ 
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ردیف</th>
+        <th scope="col">نام اتاق</th>
+        <th scope="col">عنوان</th>
+        <th scope="col">مسئول</th>
+        <th scope="col">نام درخواست کننده</th>
+        <th scope="col">تاریخ</th>
+        <th scope="col">زمان شروع </th>
+        <th scope="col">زمان پایان</th>
+        <th scope="col">وضعیت</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for p in statusroom %}
+        <tr>   
+          <th scope="row"> {{ forloop.counter }} </th>
+          <td>{{ p.meeting_room }}</td>
+          <td>{{ p.titel }}</td>
+          <td>{{ p.applicant }}</td>
+          <td>{{ p.owner }}</td>
+          <td>{{ p.date }}</td>
+          <td>{{ p.start_time }}</td>
+          <td>{{ p.end_time }}</td>
+          <td>{{ p.is_verifed }}</td>   
+        </tr>
+        {% endfor %}
+
+    </tbody>
+  </table> 
+ 
+  <button onclick="location.href = '/change_week?current_date={{startdate}}&action=last'">هفته قبل</button>
+  <button onclick="location.href = '/change_week?current_date={{startdate}}&action=next'">هفته بعد</button>
+ 
+{% endblock %} 
+
+# get_jalali_date

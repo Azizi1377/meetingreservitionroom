@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block titel %}  ورود به سیستم {% endblock %}
+
+{% block content %}
+    <h3 style="margin: auto; width: 220px; top:100px;">ورود به سیستم</h3><hr/>
+    <form action="" method="post" style="margin: auto; width: 220px;">
+        {% csrf_token %}
+        {{ form.as_ul}}
+        <input type="submit" value="ورود">
+    </form>
+{% endblock %}

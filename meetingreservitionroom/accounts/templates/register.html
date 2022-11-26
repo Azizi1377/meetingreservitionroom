@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block titel %}  ثبت نام {% endblock %}
+
+{% block content %}
+    <h3 style="margin: auto; width: 220px;">ثبت نام</h3><hr/>
+    <form action="" method="post" style="margin: auto; width: 220px;" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="ثبت نام">
+    </form>
+{% endblock %}
